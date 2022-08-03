@@ -7,11 +7,11 @@ const otpSchema = new Schema({
     otp: {
         type: String,
     },
-    create: {
+    createAt: {
         type: Date,
         default: Date.now,
         index: {
-            expires: 20
+            expires: 120
         }
     }
 }, {

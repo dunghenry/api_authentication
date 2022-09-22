@@ -17,7 +17,7 @@ class otpService {
             const newOtp = new Otp({
                 email,
                 otp: hashedOtp,
-            })
+            });
             const savedOtp = await newOtp.save();
             return savedOtp ? 1 : 0;
         } catch (error) {

@@ -14,5 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors());
 app.use(morgan('dev'));
 app.use(helmet());
-app.use('/api', userRoute)
-app.listen(4000, () => console.log(`Server listening on http://localhost:${port}`));
+app.use('/api', userRoute);
+app.listen(4000, () =>
+    console.log(`Server listening on http://localhost:${port}`),
+);

@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "format": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,jsx,css,scss,ts,tsx}",
+    "fm": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css,ts}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +27,9 @@
     "otp-generator": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
   }
 }

@@ -12,8 +12,8 @@ class userController {
     static async getStatics(req, res) {
         try {
             return res.status(200).json({
-                message: await userService.getStatics()
-            })
+                message: await userService.getStatics(),
+            });
         } catch (error) {
             console.log(error.message);
         }
@@ -21,20 +21,23 @@ class userController {
     static async getMethods(req, res) {
         try {
             return res.status(200).json({
-                message: await userService.getMethods()
-            })
+                message: await userService.getMethods(),
+            });
         } catch (error) {
             console.log(error);
         }
     }
     static async register(req, res) {
         try {
-            const { username, password, email } = req.body
-            const data = await userService.register({ username, password, email });
+            const { username, password, email } = req.body;
+            const data = await userService.register({
+                username,
+                password,
+                email,
+            });
             if (data.status === 400) {
                 return res.status(data.status).json(data.message);
-            }
-            else if (data.status === 201) {
+            } else if (data.status === 201) {
                 return res.status(data.status).json(data);
             }
         } catch (error) {
